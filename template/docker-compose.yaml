@@ -1,0 +1,34 @@
+services:
+  example-mcp:
+    build: .
+    image: example-mcp:0.1.0
+    container_name: example-mcp
+    restart: unless-stopped
+    ports:
+      - "${MCP_BIND_IP:-127.0.0.1}:${MCP_PORT:-8199}:8000"
+    environment:
+      OPENAI_API_KEY: "${OPENAI_API_KEY:?Set OPENAI_API_KEY in .env}"
+      OPENAI_MODEL: "${OPENAI_MODEL:-gpt-4.1-mini}"
+      EXAMPLE_MCP_TOKEN: "${EXAMPLE_MCP_TOKEN:?Set EXAMPLE_MCP_TOKEN in .env}"
+      MCP_HOST: "0.0.0.0"
+      MCP_PORT: "8000"
+      SERVER_IP: "${SERVER_IP:-127.0.0.1}"
+      MCP_ALLOWED_HOSTS: "${MCP_ALLOWED_HOSTS:-localhost:*,127.0.0.1:*}"
+      EXAMPLE_USAGE_DB: /data/usage.sqlite3
+      EXAMPLE_MAX_OUTPUT_TOKENS: "${EXAMPLE_MAX_OUTPUT_TOKENS:-800}"
+      EXAMPLE_WINDOW_SECONDS: "${EXAMPLE_WINDOW_SECONDS:-600}"
+      EXAMPLE_MAX_CALLS_PER_WINDOW: "${EXAMPLE_MAX_CALLS_PER_WINDOW:-3}"
+      EXAMPLE_MAX_CALLS_PER_DAY: "${EXAMPLE_MAX_CALLS_PER_DAY:-20}"
+      EXAMPLE_BUDGET_TIMEZONE: "${EXAMPLE_BUDGET_TIMEZONE:-Asia/Tokyo}"
+    volumes:
+      - usage-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    mem_limit: 256m
+volumes:
+  usage-data:
+    name: example-mcp-usage
