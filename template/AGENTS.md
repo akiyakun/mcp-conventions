@@ -18,7 +18,7 @@ TODO: このMCPが Strata に何を提供し、何を Strata に任せるかを2
 
 ```bash
 .venv/bin/python -m unittest discover -s tests -v
-EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.49:8199/mcp
+EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.100:8199/mcp
 ```
 
 <!-- BEGIN mcp-conventions: sync.py が管理。この範囲は直接編集しない -->

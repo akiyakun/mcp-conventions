@@ -28,7 +28,7 @@ LANから使うときは`.env`の`MCP_BIND_IP`と`SERVER_IP`の両方をNASのLA
 {
   "mcp_servers": {
     "example-mcp": {
-      "url": "http://192.168.0.49:8199/mcp",
+      "url": "http://192.168.0.100:8199/mcp",
       "headers": {"Authorization": "Bearer .envのEXAMPLE_MCP_TOKENと同じ値"}
     }
   }
@@ -52,6 +52,6 @@ LANから使うときは`.env`の`MCP_BIND_IP`と`SERVER_IP`の両方をNASのLA
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m unittest discover -s tests -v
-EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.49:8199/mcp            # 課金なし
-EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.49:8199/mcp --text "…"  # 課金あり
+EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.100:8199/mcp            # 課金なし
+EXAMPLE_MCP_TOKEN=... .venv/bin/python check_mcp.py http://192.168.0.100:8199/mcp --text "…"  # 課金あり
 ```

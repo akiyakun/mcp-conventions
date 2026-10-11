@@ -4,7 +4,7 @@
 
 ### 環境
 
-- MCPサーバーは UGREEN NAS（DXP4800Plus）の Docker で動かす。NASのLAN IPは `192.168.0.49`。
+- MCPサーバーは UGREEN NAS（DXP4800Plus）の Docker で動かす。NASのLAN IPは `192.168.0.100`。
 - Macでは NAS の Docker 共有が `/Volumes/docker` に SMB でマウントされている。**Macに docker は無い**。ビルド・起動確認は利用者がNASで行う。
 - クライアントは Windows PC「Phantom」上の Strata（[Niko1221/Strata](https://github.com/Niko1221/Strata)）。HTTP MCP（`/mcp`）に Bearer ヘッダー付きで接続する。
 - Strata のツール呼び出しは既定60秒でタイムアウトする。API呼び出し全体をそれ未満に収める。
@@ -14,6 +14,7 @@
 
 | ポート | リポジトリ |
 |---|---|
+| 8100 | agent-gateway（MCP中継。構成は独自） |
 | 8101 | websearch-mcp |
 | 8102 | vision-mcp |
 | 8103〜 | 未使用。新規作成時はこの表に追記する |

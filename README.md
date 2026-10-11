@@ -54,7 +54,7 @@ python3 /Volumes/docker/mcp-conventions/sync.py new translate --port 8103
 ## 規約を変えるとき
 
 1. `CONVENTIONS.md` を編集（ひな形に関わる場合は `template/` も）
-2. `python3 -m unittest discover -s tests -v`（ひな形から作ったMCPのテストが通ることも確認します）
+2. `.venv/bin/python -m unittest discover -s tests -v`（ひな形から作ったMCPのテストが通ることも確認します。`.venv` は `python3 -m venv .venv && .venv/bin/python -m pip install -r template/requirements.txt` で作成）
 3. `python3 sync.py` で反映し、各リポジトリの AGENTS.md の変更をそれぞれコミット
 
 リポジトリ固有の情報は各リポジトリの AGENTS.md のマーカーの外に書きます。
