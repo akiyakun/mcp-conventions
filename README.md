@@ -42,7 +42,7 @@ python3 /Volumes/docker/mcp-conventions/sync.py
 python3 /Volumes/docker/mcp-conventions/sync.py --check
 
 # 新しいMCPをひな形から作る（../translate-mcp を作成）
-python3 /Volumes/docker/mcp-conventions/sync.py new translate --port 8103
+python3 /Volumes/docker/mcp-conventions/sync.py new translate --port 8105
 ```
 
 `new` は名前を置き換えてコピーします：`example-mcp` → `translate-mcp`、`example_mcp` → `translate_mcp`、`EXAMPLE_` → `TRANSLATE_`、`8199` → 指定ポート。既存フォルダーは上書きしません。CONVENTIONS.md のポート表で使用済みのポートは拒否します。作成後に次の作業をします。

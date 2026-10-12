@@ -2,7 +2,7 @@
 
 python sync.py            Rewrite the shared block in sibling repositories
 python sync.py --check    Exit 1 if any repository is out of date (no writes)
-python sync.py new NAME --port 8103
+python sync.py new NAME --port 8105
                           Create ../NAME-mcp from template/ (stdlib only, no git)
 """
 import argparse

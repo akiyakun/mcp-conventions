@@ -40,7 +40,9 @@ python3 sync.py --check
 | 8100 | agent-gateway（MCP中継。構成は独自） |
 | 8101 | websearch-mcp |
 | 8102 | vision-mcp |
-| 8103〜 | 未使用。新規作成時はこの表に追記する |
+| 8103 | cloud-drive-sync（MCP以外。管理画面。構成は独自） |
+| 8104 | view-logger（MCP以外。ビューア。構成は独自） |
+| 8105〜 | 未使用。新規作成時はこの表に追記する |
 
 コンテナ内の待ち受けは常に `8000`。ホスト側は `.env` の `MCP_PORT`。
 
